@@ -53,3 +53,15 @@
 ### Fonts
 - https://meowni.ca/font-style-matcher/
 - http://www.creativebloq.com/graphic-design-tips/best-free-fonts-for-designers-1233380
+
+
+
+## Frameworks
+### Bootstrap
+- https://hackerthemes.com/bootstrap-cheatsheet/
+- https://github.com/froala/design-blocks
+- https://bootsnipp.com/
+- https://bootswatch.com/
+- https://sendcheckit.com/the-big-badass-list-of-twitter-bootstrap-resources
+### Others
+- https://shoelace.style/

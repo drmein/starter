@@ -1,9 +1,5 @@
-
-
-## Content
-- https://pixabay.com/
-- http://lorempixel.com/
-- http://www.creativebloq.com/graphic-design-tips/best-free-fonts-for-designers-1233380
+## General
+- https://github.com/gztchan/awesome-design
 
 ## Inspirations
 - https://twitter.com/i/moments/880688233641848832
@@ -15,17 +11,9 @@
 ## Templates
 - https://underexpress.com/free-website-kit
 
-
 ## Tips
 - https://codepen.io/tyrellrummage/full/ZJPXgy/
 - http://pierrickcalvez.com/journal/practical-advice-for-the-confused-designer
-
-
-## Tools
-- http://ratiobuddy.com/
-- https://klart.co/colors
-- http://brandmark.io/logo-crunch/
-
 
 ## Tutorials
 - https://betterwebtype.com/
@@ -33,6 +21,25 @@
 - https://medium.muz.li/optical-effects-9fca82b4cd9a?gi=ee3a8c49f31e
 - https://images.guide/
 
-## Page Element Resources
+
+## Page Elements
+### Backgrounds
+- https://webgradients.com/
+- https://github.com/tipsy/bubbly-bg
 ### Header
 - https://css-tricks.com/creating-non-rectangular-headers/
+
+
+## Resources
+### Colors
+- http://www.colorhunter.com/
+- https://klart.co/colors
+### Layout
+- http://ratiobuddy.com/
+- http://lorempixel.com/
+### Images
+- http://brandmark.io/logo-crunch/
+- http://fontello.com/
+### Fonts
+- https://pixabay.com/
+- http://www.creativebloq.com/graphic-design-tips/best-free-fonts-for-designers-1233380

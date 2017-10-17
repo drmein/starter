@@ -4,6 +4,7 @@
 - https://github.com/gztchan/awesome-design
 - https://www.smashingmagazine.com/2017/09/comprehensive-overview-ux-design-deliverables/
 - http://designresources.party/
+- http://makerbook.net/
 
 ## Inspirations
 - https://twitter.com/i/moments/880688233641848832

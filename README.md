@@ -35,6 +35,9 @@
 - https://github.com/tipsy/bubbly-bg
 ### Header
 - https://css-tricks.com/creating-non-rectangular-headers/
+### Forms
+- https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms
+
 
 ## Resources
 ### Colors

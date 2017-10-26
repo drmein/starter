@@ -3,37 +3,46 @@ Possible color palettes
 #010E25#072C67#253A7F#899CEB#4D63B6
 #08030F#361C6D#D64A9F#CC8CCD#7C469A
 */
-body{
-	 display: flex;
-	justify-content: center;
-align-items: center;
+
+body {
+	display: grid;
+	/*grid-template-rows: 0.1fr auto 0.1fr;*/
+	grid-template-rows: 5em auto 5em;
+	background-color: #153582;
+	height: calc(100vh);
 }
 
-label{
+label {
 	font-size: 1.1em;
-	font-weight:bold;
+	font-weight: bold;
 }
 
-#main{
-
-	  align-self: center;
+#main-header {
+	grid-row: 1/1;
+	background-color: #004a91;
+	width: 100%;
 }
 
-#starter-header{
+#main {
+	grid-row: 2/2;
+}
+
+#bottom-section {
+
+	width: 100%;
+	grid-row: 3/3;
+
+	display: grid;
+	grid-template-columns: 20% 80%;
 
 }
 
-.main-header{
-	min-height:1em;
+#bottom-grey{
+	background-color: #c5c8c6;
+		grid-column: 1/2;
 }
-
-
-#everything-box{
-	margin:7em 0em;
-}
-#everything-box form{
-	padding:1em;
-}
-#libinsight{
+#bottom-white {
+	background-color: #FFF;
+	grid-column: 2/3;
 
 }

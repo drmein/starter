@@ -1,0 +1,167 @@
+<html>
+
+<head>
+
+	<!-- Head Content -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Starter 1: Imaginary Me Interface</title>
+	<link href="style.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+
+	<script src="js/jquery-3.2.1.js"></script>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+	<script src="js/lodash.js"></script>
+
+	<script src="js/main.js"></script>
+
+</head>
+
+
+<body>
+	<!--
+    NOTES:
+        - begin with a greeting splash
+        - Have a basic, ornamental header with a few tools
+        - Heads up display at all times
+            - Time, weather
+        - Submit libanalytics (modal)
+        - google analytics (hidden)
+        -
+    -->
+	<div id="main">
+		<header id='starter-header' class='main-header container-fluid'>
+			<!-- Todo: -->
+			<div class="row">
+				<button class=' btn btn-secondary' onclick='reColorize()'>Recolorize!</button>
+
+				<button class=' btn btn-secondary' onclick='saveColors()'>Save Colors</button>
+
+			</div>
+		</header>
+
+
+
+
+
+
+
+		<section id="everything-box" class='container-fluid'>
+
+
+
+
+
+			<form class='row' target="_blank" action="https://jwupvd.on.worldcat.org/search?" method="get">
+
+				<label class='col-lg-1' for="search-input">Worldcat:</label>
+				<input class='col-lg-3' placeholder="Keywords, title, author, isbn" type="text" id="search-input" name="queryString">
+
+				<label class='col-lg-1' for="fulltext-check">Full Text</label>
+
+				<input class='col-lg-1' type="checkbox" id="fulltext-check" name="content" value="fullText">
+
+				<label class='col-lg-1' for="source-type">
+                      <span>Format:</span>
+                    </label>
+				<select class='col-lg-2' id="source-type" name="format">
+						  <option selected='selected' value="all">Everything</option>
+                      <option value="Book">Book</option>
+                      <option value="Artchap">Article</option>
+                      <option value="Jrnl">Journal</option>
+                    </select>
+
+				<button class='col-lg-1 btn btn-primary' type="submit">Search</button>
+			</form>
+
+
+
+		</section>
+
+
+
+
+
+
+
+
+
+		<section id='libinsight'>
+			<form id="add-record" role="form" class='container-fluid'>
+
+				<input type="hidden" id="misc_show_data" value="0">
+				<input type="hidden" id="uid" name="uid" value="3">
+				<div id="li-timestamp" class="controls form-inline text-center">
+					<input type="hidden" id="ts_start" name="ts_start" value="">
+					<input type="hidden" id="ts_end" name="ts_end" value="">
+				</div>
+				<input type="hidden" id="notes" name="notes" value="">
+				<div class="row">
+					<div id="li-col-1" class="col-md-12">
+						<div class="row">
+							<div id="group_4" class="form-group col-lg-2 col-md-3 col-sm-6 col-xs-12">
+								<label for="field_4" id="label_4" class="col-sm-12 control-label">Your location? <small class="negative">*</small> </label>
+								<div class="col-sm-12">
+									<select multiple="" class="form-control required single" id="field_4" name="field_4[]" required=""><option value="Downcity Circulation">Downcity Circulation</option><option value="Downcity Reference">Downcity Reference</option><option value="Harborside">Harborside</option><option selected="selected" value="In office">In office</option><option value="Other">Other</option></select>
+								</div>
+							</div>
+							<div id="group_5" class="form-group col-lg-2 col-md-3 col-sm-6 col-xs-12">
+								<label for="field_5" id="label_5" class="col-sm-12 control-label">Who asked it? </label>
+								<div class="col-sm-12">
+									<select multiple="" class="form-control single" id="field_5" name="field_5[]"><option selected='selected' value="JWU student">JWU student</option><option value="JWU faculty / staff">JWU faculty / staff</option><option value="Alumni / visitor">Alumni / visitor</option></select>
+								</div>
+							</div>
+							<div id="group_6" class="form-group col-lg-2 col-md-3 col-sm-6 col-xs-12">
+								<label for="field_6" id="label_6" class="col-sm-12 control-label">Type of question? <small class="negative">*</small> </label>
+								<div class="col-sm-12">
+									<select multiple="" class="form-control required single" id="field_6" name="field_6[]" required=""><option value="Consultation">Consultation</option><option value="Directional">Directional</option><option value="Circulation / reserves">Circulation / reserves</option><option value="Reference">Reference</option><option value="Technology">Technology</option><option value="University info">University info</option></select>
+								</div>
+							</div>
+							<div id="group_7" class="form-group col-lg-2 col-md-3 col-sm-6 col-xs-12">
+								<label for="field_7" id="label_7" class="col-sm-12 control-label">How was it asked? <small class="negative">*</small> </label>
+								<div class="col-sm-12">
+									<select multiple="" class="form-control required single" id="field_7" name="field_7[]" required=""><option value="In person">In person</option><option value="Telephone">Telephone</option><option value="SMS / text message">SMS / text message</option><option value="Other online">Other online</option><option selected='selected'  value="Instant message">Instant message</option></select>
+								</div>
+							</div>
+							<div id="group_8" class="form-group col-lg-2 col-md-3 col-sm-6 col-xs-12">
+								<label for="field_8" id="label_8" class="col-sm-12 control-label">How long did it take? <small class="negative">*</small> </label>
+								<div class="col-sm-12">
+									<select multiple="" class="form-control required single" id="field_8" name="field_8[]" required=""><option value="1-5 minutes">1-5 minutes</option><option value="5-20 minutes">5-20 minutes</option><option value="20+ minutes">20+ minutes</option></select>
+								</div>
+							</div>
+							<div id="group_9" class="form-group col-lg-2 col-md-3 col-sm-6 col-xs-12">
+								<label for="field_9" id="label_9" class="col-sm-12 control-label">Subject area? </label>
+								<div class="col-sm-12">
+									<select class="form-control" id="field_9" name="field_9[]"><option value="">Select a value</option><option value="Business">Business</option><option value="Criminal justice">Criminal justice</option><option value="Culinary &amp; baking / pastry">Culinary &amp; baking / pastry</option><option value="Culture / country">Culture / country</option><option value="Education">Education</option><option value="Equine studies">Equine studies</option><option value="Fashion">Fashion</option><option value="Food science / nutrition">Food science / nutrition</option><option value="Hospitality">Hospitality</option><option value="Humanities">Humanities</option><option value="Medicine">Medicine</option><option value="Science / math">Science / math</option><option value="Social sciences">Social sciences</option><option value="Technology">Technology</option><option value="Writing">Writing</option></select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<hr id="li-hr-bottom">
+
+
+				<!-- <label for="record-count"># of records to insert <a name="The number of records to be added" title="The number of records to be added to the dataset. They'll all be exactly the same, so proceed with caution." style="cursor: default"><span class="glyphicon glyphicon-info-sign"></span></a></label> -->
+				<input type="hidden" class="form-control input-sm" id="record-count" name="record-count" value="1">
+
+				<input type="hidden" name="wid" value="8">
+
+				<div id="li-submit-buttons" class="form-group">
+					<div class="controls form-inline text-center">
+						<button onclick="sendLi()" type="submit" class="btn btn-primary submit" data-id="0">Submit</button>
+						<a type="button" class="btn btn-default reset-all" style="margin-left: 20px;">Reset</a>
+
+					</div>
+				</div>
+
+			</form>
+		</section>
+	</div>
+</body>
+
+</html>

@@ -102,6 +102,7 @@
 - https://meowni.ca/font-style-matcher/
 ### Other
 - https://github.com/abhishekbanthia/Public-APIs
+- https://devhints.io/
 
 
 ## Tools
@@ -152,3 +153,12 @@
 - https://shoelace.style/
 ### Vue
 - https://vuejs.org/v2/guide/
+- https://css-tricks.com/intro-to-vue-2-components-props-slots/
+- https://github.com/vuejs/awesome-vue#components--libraries
+- https://github.com/pagekit/vue-resource
+- https://n3-components.github.io/N3-components/
+- https://github.com/posva/vue-mdc
+- https://bootstrap-vue.js.org/
+- https://github.com/ElemeFE/element
+- https://github.com/vuetifyjs/vuetify
+- https://github.com/vuematerial/vue-material

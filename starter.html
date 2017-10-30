@@ -34,13 +34,36 @@
 
 		<section id="main">
 
-			<homepage-content>
-			</homepage-content>
-			
+			<!-- <homepage-content>
+			</homepage-content> -->
+			<div id='homepage-item' class="display-item">
+
+				<h2>Visit the Library Homepage</h2>
+				<img style="grid-column: span 2" src='static/homepage-view-desktop.png'>
+				<img style="grid-column: span 2;" src='static/homepage-view-mobile.png'>
+
+				<h4 style="grid-column: span 1;"> You can</h4>
+				<div style="grid-column: span 4;">
+					<ul class='horizontal-list'>
+						<li>Find books and articles</li>
+						<li>See our textbook collection</li>
+						<li>Chat with a librarian</li>
+						<li>Book a study room</li>
+					</ul>
+				</div>
+
+
+				<div style="grid-column: span 4;" class="callout">
+					 <span>http://pvd.library.jwu.edu/homepage </span>
+					<span>
+									<qriously value='http://pvd.library.jwu.edu/homepage'  :size="100"  /></span>
+
+				</div>
+			</div>
 		</section>
 
 
-		<display-footer id='bottom-section' :datetext='date'>
+		<display-footer :datetext='date'>
 		</display-footer>
 
 

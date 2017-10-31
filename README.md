@@ -69,6 +69,7 @@
 - https://medium.muz.li/optical-effects-9fca82b4cd9a?gi=ee3a8c49f31e
 - https://css-tricks.com/snippets/css/complete-guide-grid/
 - https://css-tricks.com/almanac/properties/t/transition/
+- https://www.toptal.com/designers/ui/dark-ui
 
 ## Page Elements
 ### Backgrounds
@@ -101,6 +102,7 @@
 ### Fonts
 - http://www.creativebloq.com/graphic-design-tips/best-free-fonts-for-designers-1233380
 - https://meowni.ca/font-style-matcher/
+- http://fontpair.co/
 ### Other
 - https://github.com/abhishekbanthia/Public-APIs
 - https://devhints.io/
@@ -163,3 +165,9 @@
 - https://github.com/ElemeFE/element
 - https://github.com/vuetifyjs/vuetify
 - https://github.com/vuematerial/vue-material
+
+
+## Editors
+### Vim
+- https://vimawesome.com/
+- http://vimcolors.com/

@@ -1,11 +1,11 @@
 function getDate(timestamp) {
-  var d = new Date(timestamp);
-  return d.toDateString()
+	var d = new Date(timestamp);
+	return d.toDateString()
 }
 
 Vue.component('display-footer', {
-  props: ['datetext'],
-  template: `
+	props: ['datetext'],
+	template: `
   <section id='bottom-section'>
 	  <div id='bottom-grey'>
 	   <span id="date-time">{{datetext}}</span>
@@ -20,9 +20,16 @@ Vue.component('display-footer', {
 
 
 Vue.component('display-header', {
-  template: `
+	template: `
 	 <section id ='main-header'>
-	 <img src='static/library-identifier-whiteandorange.svg'>
+	 <span style='grid-column:1'> <img src='static/library-identifier-whiteandorange.svg'></span>
+     <span style='grid-column:2'>
+     Visit our website
+            <qriously value='http://pvd.library.jwu.edu/homepage'  :size="100"  /></span>
+                <span style='grid-column:3'>
+                Chat with a Librarian
+                         	<qriously value='http://pvd.library.jwu.edu/chat'  :size="100"  />
+                            </span>
 
 </section>
   `
@@ -31,8 +38,8 @@ Vue.component('display-header', {
 
 
 Vue.component('homepage-content', {
-  props: ['datetext'],
-  template: `
+	props: ['datetext'],
+	template: `
 
 	<div id='homepage-item' class="display-item">
 	<section class="splash-area">
@@ -62,22 +69,30 @@ Vue.component('homepage-content', {
 });
 
 const vm = new Vue({
-  el: "#app",
-  data() {
-    return {
-      message: "Hello!",
-      date: getDate(_.now())
-    }
-  }
+	el: "#app",
+	data() {
+		return {
+			message: "Hello!",
+			date: getDate(_.now())
+		}
+	}
 });
 
 
 
 
-var svgBullet = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg>`
+var svgBullet1 = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg>
+`;
+
+var svgBullet2 = `
+<svg height="100" width="100">
+  <circle cx="3vw" cy="6vh" r=".5vw" stroke="white" stroke-width="3" fill="white" />
+  Sorry, your browser does not support inline SVG.
+</svg>
+`
 // Initialize
 $(document).ready(function() {
 
-$('ul.horizontal-list li').prepend(svgBullet);
+	$('ul.horizontal-list li').prepend(svgBullet1);
 });

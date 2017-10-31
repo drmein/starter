@@ -11,6 +11,7 @@ Vue.component('display-footer', {
 	   <span id="date-time">{{datetext}}</span>
 	  </div>
 	  <div id='bottom-white'>
+      <span>Johnson & Wales University Library</span>
  <img src='static/jwuseal_alt.png'>
 	  </div>
   </section>
@@ -71,8 +72,12 @@ const vm = new Vue({
 });
 
 
+
+
+var svgBullet = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg>`
 // Initialize
 $(document).ready(function() {
 
-
+$('ul.horizontal-list li').prepend(svgBullet);
 });

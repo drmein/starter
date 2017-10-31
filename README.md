@@ -97,6 +97,7 @@
 ### Icons
 - http://fontello.com/
 - https://thenounproject.com/
+- - https://css-tricks.com/pretty-good-svg-icon-system/
 ### Fonts
 - http://www.creativebloq.com/graphic-design-tips/best-free-fonts-for-designers-1233380
 - https://meowni.ca/font-style-matcher/

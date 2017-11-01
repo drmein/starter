@@ -22,12 +22,15 @@ label {
   display: flex;
   align-content: center;
   justify-content: center;
+  align-items: center;
+  justify-items: center;
+  color:#FFF;
 
 }
 
 #main-header img {
   width: 10em;
-  margin:0 10vw;
+
 
 }
 

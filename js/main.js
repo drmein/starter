@@ -5,19 +5,56 @@ function getDate(timestamp) {
 
 
 
-Vue.component('display-header', {
-	props: ['libHours'],
-	template: `
-	 <section id ='main-header'>
-	  <img src='static/library-identifier-whiteandorange.svg'>
-	 </section>
-  `
+
+function getHours() {
+	var outHours = '';
+	var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+	var cat = document.createElement('div');
+
+	url = 'https://api3.libcal.com/api_hours_today.php?iid=1433&lid=0&format=json&systemTime=0';
+
+	fetch(proxyUrl + url, {
+			method: "GET"
+		}).then(function(response) {
+			return response.json();
+		})
+		.then(function(text) {
+			hours = text.locations;
+			locLabel = ['Downcity: ', 'Harborside: ', 'Museum: '];
+			for (var i = 0; i < hours.length; i++) {
+				l = hours[i];
+				hourString = l.times.hours[0].from + ' - ' + l.times.hours[0].to;
+				vm.outHours += (locLabel[i] + hourString + ' ');
+			};
+
+		});
+
+};
+
+
+
+
+Vue.component('display-header', function(resolve, reject) {
+	setTimeout(function() {
+		resolve({
+			props: ['datetext'],
+
+			template: `
+				  <section id ='main-header'>
+				   <img src='static/library-identifier-whiteandorange.svg'>
+
+				   <div>{{datetext}}</div>
+
+				  </section>
+			  `
+		})
+	}, 1)
 });
 
 
 
 Vue.component('homepage-content', {
-	props: ['datetext'],
+
 	template: `
 
 	<div id='homepage-item' class="display-item">
@@ -70,7 +107,8 @@ const vm = new Vue({
 	data() {
 		return {
 			message: "Hello!",
-			date: getDate(_.now())
+			date: getDate(_.now()),
+			outHours: ''
 		}
 	}
 });
@@ -79,7 +117,7 @@ const vm = new Vue({
 
 
 var svgBullet1 = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg>
+	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg>
 `;
 
 
@@ -87,4 +125,5 @@ var svgBullet1 = `
 $(document).ready(function() {
 
 	$('ul.horizontal-list li').prepend(svgBullet1);
+	getHours();
 });

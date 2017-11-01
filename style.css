@@ -19,8 +19,9 @@ label {
   grid-row: 1;
   background-color: #004a91;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr)
+  display: flex;
+  align-content: center;
+  justify-content: center;
 
 }
 

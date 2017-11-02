@@ -171,3 +171,30 @@
 ### Vim
 - https://vimawesome.com/
 - http://vimcolors.com/
+
+
+
+
+## books
+### free online
+
+### print
+
+
+
+
+
+
+# Notes and tips
+
+## Vue
+### basics
+- Vue configuration object (has object targeting, data )
+- ####  Directives: can use v-for='item in items' ( a list )
+- #### Computed properties
+	- a new property in the constrcutor
+	- advantage over methods: caches value
+- #### watchers
+	- Use watch for api calls
+	- maybe jquerys getJSON ?
+	- watch is useful for asynchronous tasks in response to property changes

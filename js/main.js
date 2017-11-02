@@ -1,13 +1,5 @@
-function getDate(timestamp) {
-	var d = new Date(timestamp);
-	return d.toDateString()
-}
-
-
-
-
 function getHours() {
-	var outHours = '';
+
 	var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 	var cat = document.createElement('div');
 
@@ -17,17 +9,22 @@ function getHours() {
 			method: "GET"
 		}).then(function(response) {
 			return response.json();
+
 		})
 		.then(function(text) {
-			hours = text.locations;
-			locLabel = ['Downcity: ', 'Harborside: ', 'Museum: '];
-			for (var i = 0; i < hours.length; i++) {
-				l = hours[i];
-				hourString = l.times.hours[0].from + ' - ' + l.times.hours[0].to;
-				vm.outHours += (locLabel[i] + hourString + ' ');
-			};
+			vm.outHours = text.locations;
+
+			// locLabel = ['Downcity: ', 'Harborside: ', 'Museum: '];
+			// for (var i = 0; i < hours.length; i++) {
+			// 	l = hours[i];
+			// 	hourString = l.times.hours[0].from + ' - ' + l.times.hours[0].to;
+			// 	vm.outHours += (locLabel[i] + hourString + ' ');
+			//
+			// };
+
 
 		});
+
 
 };
 
@@ -37,40 +34,66 @@ function getHours() {
 Vue.component('display-header', function(resolve, reject) {
 	setTimeout(function() {
 		resolve({
-			props: ['datetext'],
+			props: ['hours'],
+
+			data() {
+				return {
+					inspirationMsgs: [
+						'You can do it!',
+						'Today is a great day for research',
+						'Have you talked to a librarian today?',
+						'We have hundreds of thousands of ebooks!'
+					]
+
+				}
+			},
+			computed: {
+				welcomeMsg: function() {
+					return _.sample(this.inspirationMsgs)
+				}
+
+			},
 
 			template: `
 				  <section id ='main-header'>
 				   <img src='static/library-identifier-whiteandorange.svg'>
 
-				   <div>{{datetext}}</div>
+				   <div id='top-hours'>
+
+				   <span v-for='item in hours'>
+				   		   {{item.name}} 	:	   {{item.times.hours[0].from}} --  {{item.times.hours[0].to}}
+						    </span>
+				   </div>
+				   <div id='welcome-message'>{{welcomeMsg}}</div>
 
 				  </section>
 			  `
 		})
-	}, 1)
+	}, 50)
 });
 
 
 
 Vue.component('homepage-content', {
+	data() {
+		return {
+			sectionTitle: 'Visit the Library Homepage',
+			bulletItems: ['Find books and articles', 'See our textbook collection', 'Chat with a librarian', 'Book a study room', 'Learn how to research', ]
+		}
+	},
 
 	template: `
 
 	<div id='homepage-item' class="display-item">
 
-		<h2 style="grid-column: 1/9">Visit the Library Homepage</h2>
+		<h2 style="grid-column: 1/9">{{sectionTitle}}</h2>
 		<img style="grid-column: 2/5" src='static/homepage-view-desktop.png'>
 		<img style="grid-column: 5/7;" src='static/homepage-view-mobile.png'>
 
 		<h4 style="grid-column: 1/2;"> You can:</h4>
 		<div style="grid-column: 2/8;">
-			<ul class='horizontal-list'>
-				<li>Find books and articles</li>
-				<li>See our textbook collection</li>
-				<li>Chat with a librarian</li>
-				<li>Book a study room</li>
-				<li>Learn how to research</li>
+			<ul  class='horizontal-list'>
+			<li v-for='item in bulletItems'>{{item}}</li>
 			</ul>
 		</div>
 
@@ -88,11 +111,17 @@ Vue.component('homepage-content', {
 
 
 Vue.component('display-footer', {
-	props: ['datetext'],
+	computed: {
+		date: function() {
+			var d = new Date(_.now());
+			return d.toDateString()
+		}
+
+	},
 	template: `
 	<section id='bottom-section'>
 	  <div id='bottom-grey'>
-	   <span id="date-time">{{datetext}}</span>
+	   <span id="date-time">{{date}}</span>
 	  </div>
 	  <div id='bottom-white'>
       <span>Johnson & Wales University Library</span>
@@ -107,9 +136,22 @@ const vm = new Vue({
 	data() {
 		return {
 			message: "Hello!",
-			date: getDate(_.now()),
+
+
 			outHours: ''
+
 		}
+	},
+	libraryName: {
+		message: function() {
+			console.log('CHANGED')
+		}
+	},
+	computed: {
+		libraryName: function() {
+			return _.sample(['Downcity Library', 'Harborside Library'])
+		}
+
 	}
 });
 

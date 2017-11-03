@@ -42,6 +42,10 @@
 - http://makerbook.net/
 
 
+## Design patterns
+- http://ui-patterns.com/patterns
+- http://patterns.alistapart.com/
+
 
 ## Inspirations
 - http://csszengarden.com/

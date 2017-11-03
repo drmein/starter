@@ -5,13 +5,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Starter 2: Vue Test</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://unpkg.com/vue"></script>
 	<script src="js/vue-qriously.js"></script>
 
 	<script src="js/jquery-3.2.1.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
 	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
 
 	<script src="js/lodash.js"></script>
@@ -30,23 +28,30 @@
 	<div id="app">
 
 
-		<display-header :hours='outHours' >
+		<display-header :hours='outHours'>
 
 			<!-- Todo: -->
 		</display-header>
 
-		 <h1 id='page-title'>Welcome to the {{libraryName}} </h1>
+		<h1 id='page-title'>Welcome to the {{libraryName}} </h1>
 
 
 		<section id="main">
 
+
+
 			<homepage-content>
 			</homepage-content>
 
-
+			<database-content>
+			</database-content>
 
 
 		</section>
+
+
+
+
 
 
 		<display-footer>

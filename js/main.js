@@ -78,7 +78,9 @@ Vue.component('homepage-content', {
 	data() {
 		return {
 			sectionTitle: 'Visit the Library Homepage',
-			bulletItems: ['Find books and articles', 'See our textbook collection', 'Chat with a librarian', 'Book a study room', 'Learn how to research', ]
+			bulletItems: ['Find books and articles', 'See our textbook collection', 'Chat with a librarian', 'Book a study room', 'Learn how to research', ],
+				images: ['static/homepage-view-desktop.png', 'static/homepage-view-mobile.png'],
+				qrUrl: 'http://pvd.library.jwu.edu/homepage'
 		}
 	},
 
@@ -87,15 +89,16 @@ Vue.component('homepage-content', {
 	<div id='homepage-item' class="display-item">
 
 		<h2 style="grid-column: 1/9">{{sectionTitle}}</h2>
-		<img style="grid-column: 2/5" src='static/homepage-view-desktop.png'>
-		<img style="grid-column: 5/7;" src='static/homepage-view-mobile.png'>
+<div class="image-wrap">
+<img  v-for='item in images' :src=item>
+</div>
 
-		<h4 style="grid-column: 1/2;"> You can:</h4>
-		<div style="grid-column: 2/8;">
+		<h4> You can:</h4>
+
 			<ul  class='horizontal-list'>
 			<li v-for='item in bulletItems'>{{item}}</li>
 			</ul>
-		</div>
+
 
 
 		<div style="grid-column: 1/9;" class="callout">
@@ -108,6 +111,58 @@ Vue.component('homepage-content', {
   `
 });
 
+
+
+
+Vue.component('database-content', {
+	data() {
+		return {
+			sectionTitle: 'Check out our Databases!',
+			bulletItems: [
+
+			'Read case studies',
+			'Get company ratios',
+			 'Read the New York Times or Wall Street Journals (as many articles as you like!)',
+			 'Find scholarly articles',
+			 'Read ebooks',
+			 'Learn new tech skills',
+		 'Find topics for persuasive essays' ],
+			imageList: ['static/database-image-1.png', 'static/database-image-2.png','static/database-image-3.png', 'static/database-image-4.png'],
+			qrUrl: 'http://pvd.library.jwu.edu/az.php'
+		}
+	},
+	computed: {
+		images: function(){
+			return _.sampleSize(this.imageList, [n=3])
+		}
+	},
+
+
+	template: `
+
+	<div id='databases-item' class="display-item">
+
+		<h2 style="grid-column: 1/9">{{sectionTitle}}</h2>
+<div class="image-wrap"><img  v-for='item in images' :src=item></div>
+
+
+		<h4> You can:</h4>
+
+			<ul  class='horizontal-list'>
+			<li v-for='item in bulletItems'>{{item}}</li>
+			</ul>
+
+
+
+		<div style="grid-column: 1/9;" class="callout">
+			<span>{{qrUrl}} </span>
+			<span>
+							<qriously :value=qrUrl  :size="100"  /></span>
+
+		</div>
+	</div>
+  `
+});
 
 
 Vue.component('display-footer', {
@@ -158,14 +213,11 @@ const vm = new Vue({
 
 
 
-var svgBullet1 = `
-	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg>
-`;
+
 
 
 // Initialize
 $(document).ready(function() {
-
-	$('ul.horizontal-list li').prepend(svgBullet1);
+	$(_.sample(['#databases-item','#homepage-item'])).hide();
 	getHours();
 });

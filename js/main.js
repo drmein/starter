@@ -79,8 +79,8 @@ Vue.component('homepage-content', {
 		return {
 			sectionTitle: 'Visit the Library Homepage',
 			bulletItems: ['Find books and articles', 'See our textbook collection', 'Chat with a librarian', 'Book a study room', 'Learn how to research', ],
-				images: ['static/homepage-view-desktop.png', 'static/homepage-view-mobile.png'],
-				qrUrl: 'http://pvd.library.jwu.edu/homepage'
+			images: ['static/homepage-view-desktop.png', 'static/homepage-view-mobile.png'],
+			qrUrl: 'http://pvd.library.jwu.edu/homepage'
 		}
 	},
 
@@ -104,7 +104,7 @@ Vue.component('homepage-content', {
 		<div style="grid-column: 1/9;" class="callout">
 			<span>http://pvd.library.jwu.edu/homepage </span>
 			<span>
-							<qriously value='http://pvd.library.jwu.edu/homepage'  :size="100"  /></span>
+								<qriously class='qr-code'  value='http://pvd.library.jwu.edu/homepage'  :size="100"  /></span>
 
 		</div>
 	</div>
@@ -118,22 +118,50 @@ Vue.component('database-content', {
 	data() {
 		return {
 			sectionTitle: 'Check out our Databases!',
-			bulletItems: [
+			svgBullet:		`
+	 ---
 
-			'Read case studies',
-			'Get company ratios',
-			 'Read the New York Times or Wall Street Journals (as many articles as you like!)',
-			 'Find scholarly articles',
-			 'Read ebooks',
-			 'Learn new tech skills',
-		 'Find topics for persuasive essays' ],
-			imageList: ['static/database-image-1.png', 'static/database-image-2.png','static/database-image-3.png', 'static/database-image-4.png'],
+			`,
+			bulletItemList: [
+				'Read case studies',
+				'Get company ratios',
+				'Read the New York Times or Wall Street Journals (as many articles as you like!)',
+				'Find scholarly articles',
+				'Read ebooks',
+				'Learn new tech skills',
+				'Find topics for persuasive essays'
+			],
+			imageObjList: [{
+					'imgPath': 'static/database-image-1.png',
+					'title': 'Sage Business Cases',
+					'url': ''
+				},
+				{
+					'imgPath': 'static/database-image-2.png',
+					'title': 'Ebook Central',
+					'url': ''
+				},
+				{
+					'imgPath': 'static/database-image-3.png',
+					'title': 'Lynda.com',
+					'url': ''
+				},
+				{
+					'imgPath': 'static/database-image-4.png',
+					'title': 'Business Source Complete',
+					'url': ''
+				}
+			],
 			qrUrl: 'http://pvd.library.jwu.edu/az.php'
 		}
 	},
 	computed: {
-		images: function(){
-			return _.sampleSize(this.imageList, [n=3])
+		imageObjs: function() {
+			return _.sampleSize(this.imageObjList, [n = 3])
+		},
+
+		bulletItems: function() {
+			return _.sampleSize(this.bulletItemList, [n = 4])
 		}
 	},
 
@@ -143,13 +171,21 @@ Vue.component('database-content', {
 	<div id='databases-item' class="display-item">
 
 		<h2 style="grid-column: 1/9">{{sectionTitle}}</h2>
-<div class="image-wrap"><img  v-for='item in images' :src=item></div>
+<div class="image-wrap">
+<div class='db-cards' v-for='item in imageObjs'>
+<img  :src=item.imgPath>
+<p> {{item.title}} </p>
+</div>
+</div>
 
 
 		<h4> You can:</h4>
 
 			<ul  class='horizontal-list'>
-			<li v-for='item in bulletItems'>{{item}}</li>
+			<li v-for='item in bulletItems'>
+			<span v-html='svgBullet'></span>
+			{{item}}
+			</li>
 			</ul>
 
 
@@ -157,7 +193,7 @@ Vue.component('database-content', {
 		<div style="grid-column: 1/9;" class="callout">
 			<span>{{qrUrl}} </span>
 			<span>
-							<qriously :value=qrUrl  :size="100"  /></span>
+							<qriously class='qr-code' :value=qrUrl  :size="100"  /></span>
 
 		</div>
 	</div>
@@ -218,6 +254,6 @@ const vm = new Vue({
 
 // Initialize
 $(document).ready(function() {
-	$(_.sample(['#databases-item','#homepage-item'])).hide();
+	$(_.sample(['#databases-item', '#homepage-item'])).hide();
 	getHours();
 });

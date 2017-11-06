@@ -1,36 +1,5 @@
 # Frontend Resources
 
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Frontend Resources](#frontend-resources)
-	- [Design (General)](#design-general)
-	- [Inspirations](#inspirations)
-	- [Templates](#templates)
-	- [Tips](#tips)
-	- [Tutorials](#tutorials)
-	- [Page Elements](#page-elements)
-		- [Backgrounds](#backgrounds)
-		- [Header](#header)
-		- [Forms](#forms)
-	- [Resources](#resources)
-		- [Colors](#colors)
-		- [Layout](#layout)
-		- [Images](#images)
-		- [Icons](#icons)
-		- [Fonts](#fonts)
-		- [Other](#other)
-	- [Tools](#tools)
-	- [Plugins](#plugins)
-		- [Modals](#modals)
-		- [UI Misc](#ui-misc)
-		- [node](#node)
-		- [Vue](#vue)
-	- [Backend](#backend)
-	- [App Development](#app-development)
-	- [Frameworks & resources](#frameworks-resources)
-		- [Bootstrap](#bootstrap)
-		- [Others](#others)
-		- [Vue](#vue)
 
 <!-- /TOC -->
 

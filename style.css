@@ -187,7 +187,6 @@ ul.horizontal-list {
 	justify-content: center;
 	align-items: center;
     padding:1em 10em;
-
 	border: 5px solid #CCC;
 	margin: 2% 20%;
 	grid-column: span 4;

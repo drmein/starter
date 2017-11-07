@@ -11,6 +11,9 @@
 - http://makerbook.net/
 
 
+## Front-end (General)
+- https://github.com/thedaviddias/Front-End-Checklist
+
 ## Design patterns
 - http://ui-patterns.com/patterns
 - http://patterns.alistapart.com/
@@ -144,6 +147,7 @@
 ### Vim
 - https://vimawesome.com/
 - http://vimcolors.com/
+- https://www.safaribooksonline.com/blog/2014/11/23/way-vim-ide/
 
 
 

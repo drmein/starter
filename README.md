@@ -171,3 +171,12 @@
 	- Use watch for api calls
 	- maybe jquerys getJSON ?
 	- watch is useful for asynchronous tasks in response to property changes
+
+
+
+## JS
+
+
+
+
+## CSSGrid

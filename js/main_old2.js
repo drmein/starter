@@ -1,7 +1,10 @@
 function getHours() {
+
   var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
   var cat = document.createElement('div');
+
   url = 'https://api3.libcal.com/api_hours_today.php?iid=1433&lid=0&format=json&systemTime=0';
+
   fetch(proxyUrl + url, {
       method: "GET"
     }).then(function(response) {
@@ -9,10 +12,15 @@ function getHours() {
 
     })
     .then(function(text) {
-      vm.outHours = text.locations
+      vm.outHours = text.locations;
+
 
     });
+
+
 };
+
+
 
 // Lower level components
 
@@ -31,7 +39,7 @@ Vue.component('imagelist-component', {
   props: ['imagelist'],
   template: `
     <div class="image-wrap">
-	<div class='img-cards' v-for='item in imagelist'>
+	<div class='db-cards' v-for='item in imagelist'>
 	<img  :src=item.imgPath>
 	<p> {{item.title}} </p>
 	</div>
@@ -39,7 +47,11 @@ Vue.component('imagelist-component', {
 `
 });
 
+
+
+
 // Top level components
+
 
 Vue.component('display-header', function(resolve, reject) {
   setTimeout(function() {
@@ -82,56 +94,16 @@ Vue.component('display-header', function(resolve, reject) {
   }, 50)
 });
 
-Vue.component('structure-content', {
-  props: ['divname', 'sectionTitle', 'externalUrl', 'bulletItemList' , 'imageObjList', 'qrUrl', 'hasBullets'],
 
-  data() {
-    return {}
-  },
-  computed: {
-    imageObjs: function() {
-      return _.sampleSize(this.imageObjList, [n = 3])
-    },
-
-    bulletItems: function() {
-      return _.sampleSize(this.bulletItemList, [n = 4])
-    }
-  },
-  template: `
-              <div :id=divname class="display-item">
-
-                <h2 style="grid-column: 1/9">{{sectionTitle}}</h2>
-
-                    <imagelist-component :imagelist=imageObjList>
-                      </imagelist-component>
-
-                <div v-if=hasBullets  class="bullet-list">
-                <h4> You can:</h4>
-
-                <ul  class='horizontal-list'>
-                <li v-for='item in bulletItems'>{{item}}</li>
-                 </ul>
-
-                </div>
-
-                <callout-component :externalUrl=qrUrl style="grid-column: 1/9;">
-                </callout-component>
-
-            </div>
-			  `
-
-});
-
-// Page components
 
 Vue.component('homepage-content', {
   data() {
     return {
       sectionTitle: 'Visit the Library Homepage',
-      bulletItemList: ['Find books and articles', 'See our textbook collection', 'Chat with a librarian', 'Book a study room', 'Learn how to research'],
+      bulletItems: ['Find books and articles', 'See our textbook collection', 'Chat with a librarian', 'Book a study room', 'Learn how to research', ],
       imageObjList: [{
           'imgPath': 'static/homepage-view-desktop.png',
-          'title': 'Desktop/Laptop',
+          'title': 'Destkop/Laptop',
           'url': ''
         },
         {
@@ -140,24 +112,37 @@ Vue.component('homepage-content', {
           'url': ''
         }
       ],
-      qrUrl: 'http://pvd.library.jwu.edu/homepage',
-      divName: 'homepage-item',
-      bullets: true
+      qrUrl: 'http://pvd.library.jwu.edu/homepage'
     }
   },
 
   template: `
 
-	<structure-content :divname=divName :qrUrl=qrUrl :sectionTitle=sectionTitle :imageObjList=imageObjList :hasBullets=bullets :bulletItemList=bulletItemList >
-  </structure-content>
+	<div id='homepage-item' class="display-item">
+
+		<h2 style="grid-column: 1/9">{{sectionTitle}}</h2>
+
+        <imagelist-component :imagelist=imageObjList>
+        </imagelist-component>
+
+		<h4> You can:</h4>
+				<ul  class='horizontal-list'>
+				            <li v-for='item in bulletItems'>{{item}}</li>
+				</ul>
+
+		<callout-component :externalUrl=qrUrl style="grid-column: 1/9;">
+		</callout-component>
+
+		</div>
 	  `
 });
+
+
+
 
 Vue.component('database-content', {
   data() {
     return {
-      divName: 'databases-item',
-      bullets: true,
       sectionTitle: 'Check out our Databases!',
       svgBullet: `
 	 ---
@@ -196,31 +181,58 @@ Vue.component('database-content', {
       qrUrl: 'http://pvd.library.jwu.edu/az.php'
     }
   },
+  computed: {
+    imageObjs: function() {
+      return _.sampleSize(this.imageObjList, [n = 3])
+    },
+
+    bulletItems: function() {
+      return _.sampleSize(this.bulletItemList, [n = 4])
+    }
+  },
+
 
   template: `
 
-  <structure-content :divname=divName :qrUrl=qrUrl :sectionTitle=sectionTitle :imageObjList=imageObjList :hasBullets=bullets :bulletItemList=bulletItemList >
-    </structure-content>
+		<div id='databases-item' class="display-item">
+
+			<h2 style="grid-column: 1/9">{{sectionTitle}}</h2>
+	<div class="image-wrap">
+	<div class='db-cards' v-for='item in imageObjs'>
+	<img  :src=item.imgPath>
+	<p> {{item.title}} </p>
+	</div>
+	</div>
+
+
+			<h4> You can:</h4>
+
+				<ul  class='horizontal-list'>
+				<li v-for='item in bulletItems'>
+				<span v-html='svgBullet'></span>
+				{{item}}
+				</li>
+				</ul>
+
+
+
+                <callout-component :externalUrl=qrUrl style="grid-column: 1/9;">
+
+
+    			</callout-component>
+		</div>
   `
 });
+
 
 Vue.component('newbook-content', {
   data() {
     return {
-      bullets: false,
-      divName: 'newbooks-item',
       sectionTitle: 'New Books in Our Collection',
-      svgBullet: `	 ---		`,
+      svgBullet: `
+	 ---
 
-      bulletItemList: [
-        'Read case studies',
-        'Get company ratios',
-        'Read the New York Times or Wall Street Journals (as many articles as you like!)',
-        'Find scholarly articles',
-        'Read ebooks',
-        'Learn new tech skills',
-        'Find topics for persuasive essays'
-      ],
+			`,
 
       imageObjList: [{
           'imgPath': 'static/database-image-1.png',
@@ -257,35 +269,55 @@ Vue.component('newbook-content', {
     }
   },
 
+
   template: `
 
-  <structure-content :divname=divName :qrUrl=qrUrl :sectionTitle=sectionTitle :imageObjList=imageObjList :hasBullets=bullets :bulletItemList=bulletItemList >
-  </structure-content>
+		<div id='newbooks-item' class="display-item">
+
+			<h2 style="grid-column: 1/9">{{sectionTitle}}</h2>
+	<div class="image-wrap">
+	<div class='db-cards' v-for='item in imageObjs'>
+	<img  :src=item.imgPath>
+	<p> {{item.title}} </p>
+	</div>
+	</div>
+
+
+
+
+
+
+    <callout-component :externalUrl=qrUrl style="grid-column: 1/9;">
+
+
+    </callout-component>
+		</div>
   `
 });
+
+
 
 Vue.component('librarian-content', {
   data() {
     return {
       sectionTitle: 'Featured librarians',
-      bullets: true,
-      divName: 'librarian-item',
-      bulletItemList: [
-        'Read case studies',
-        'Get company ratios',
-        'Read the New York Times or Wall Street Journals (as many articles as you like!)',
-        'Find scholarly articles',
-        'Read ebooks',
-        'Learn new tech skills',
-        'Find topics for persuasive essays'
-      ],
+
+
 
       qrUrl: 'http://pvd.library.jwu.edu/az.php',
       lgHtmlObjs: {},
       lgHtml: 'placeholder'
     }
   },
+  computed: {
+    imageObjs: function() {
+      return _.sampleSize(this.imageObjList, [n = 3])
+    },
 
+    bulletItems: function() {
+      return _.sampleSize(this.bulletItemList, [n = 4])
+    }
+  },
   watch: {
     lgHtml: function() {
       console.log("CHANGES");
@@ -294,11 +326,31 @@ Vue.component('librarian-content', {
     }
   },
 
+
   template: `
-  <structure-content :divname=divName :qrUrl=qrUrl :sectionTitle=sectionTitle :imageObjList=imageObjList :hasBullets=bullets :bulletItemList=bulletItemList >
-  </structure-content>
+
+		<div id='librarian-item' class="display-item">
+
+			<h2 style="grid-column: 1/9">{{sectionTitle}}</h2>
+
+
+    <imagelist-component :imagelist=imageObjs>
+    </imagelist-component>
+
+
+
+
+
+
+			<div style="grid-column: 1/9;" class="callout">
+				<span v-html='lgHtml'> </span>
+
+
+			</div>
+		</div>
   `
 });
+
 
 Vue.component('display-footer', {
   computed: {
@@ -327,6 +379,7 @@ const vm = new Vue({
     return {
       message: "Hello!",
 
+
       outHours: ''
 
     }
@@ -343,6 +396,7 @@ const vm = new Vue({
 
   }
 });
+
 
 //TODO
 function storeGetContent(content, container) {
@@ -364,11 +418,12 @@ function getLgContent(url, container) {
     .then(function(text) {
       storeGetContent(text, container);
 
+
     });
+
 
 };
 
-//TODO: GET LG CONTENT, and then Parse into a JSON Object
 
 function parseLgContent(lgContent) {
   parsed = _.toLower(lgContent);
@@ -376,21 +431,20 @@ function parseLgContent(lgContent) {
   return parsed
 }
 
-var contentItems = ['#databases-item', '#homepage-item', '#newbooks-item', '#librarian-item'];
 
-function changeContent(contentItems) {
-  _.forEach(contentItems, function(item) {
-    $(item).hide();
-  });
-  $(_.sample(contentItems)).show();
 
-}
+
+
 
 // Initialize
 $(document).ready(function() {
+  var contentItems = ['#databases-item', '#homepage-item', '#newbooks-item', '#librarian-item'];
 
-  changeContent(contentItems);
+  _.forEach(contentItems, function(item) {
+    $(item).hide();
+  });
 
+  $(_.sample(contentItems)).show();
   getHours();
   // New book content get
   getLgContent(
@@ -401,12 +455,4 @@ $(document).ready(function() {
   getLgContent(
     'https://lgapi-us.libapps.com/widgets.php?site_id=538&widget_type=8&output_format=1&widget_embed_type=2&guide_id=731798&box_id=16571535&map_id=19518122&content_only=0&config_id=1510006276756',
     'librarianref');
-
-  window.addEventListener('keyup', function(event) {
-    // If down arrow was pressed...
-    if (event.keyCode == 65) {
-      changeContent(contentItems);
-    }
-  });
-
 });

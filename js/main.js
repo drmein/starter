@@ -33,7 +33,9 @@ Vue.component('structure-content', {
 		'bulletItemTitle': {
 			default: 'You can: '
 		},
-		'imageObjList': {},
+		qrUrl: {default: ''},
+		'imageObjList': {default: {}},
+		'featuredImage': {default:'static/jwuseal.png'},
 		'hasBullets': {
 			default: true
 		},
@@ -58,7 +60,9 @@ Vue.component('structure-content', {
 
                     <imagelist-component :imagelist=imageObjList>
                       </imagelist-component>
-
+				<div class='featured-image'>
+				<img :src=featuredImage>
+				</div>
                 <div v-if=hasBullets  class="bullet-list">
                 <h4>{{bulletItemTitle}}</h4>
 
@@ -308,16 +312,15 @@ Vue.component('librarian-content', {
 			console.log("CHANGES");
 			parsedLibrarianContent = parseLgContent(this.lgHtmlObjs, 'librarian');
 			this.parsedHtml = parsedLibrarianContent;
-			this.image = parsedLibrarianContent.image;
+			this.image = parsedLibrarianContent.image.src;
 		}
 	},
 
 	template: `
-  <structure-content :divname=divName :qrUrl=qrUrl :sectionTitle=sectionTitle :imageObjList=imageObjList :hasBullets=bullets :bulletItemList=bulletItemList :bulletItemTitle=bulletItemTitle >
+  <structure-content :divname=divName :qrUrl=qrUrl :sectionTitle=sectionTitle :imageObjList=imageObjList :hasBullets=bullets :bulletItemList=bulletItemList :bulletItemTitle=bulletItemTitle :featuredImage=image>
 
   </structure-content>
-  <div v-html=image>
-  </div>
+
   `
 });
 
@@ -405,6 +408,8 @@ function librarianParse(lgContent) {
 	parsed = _.sample(parsed);
 	outObj = {};
 	outObj['image'] = _.sample(parsed.querySelectorAll('img'));
+	outObj['text'] = _.sample(parsed.querySelectorAll('p'));
+
 	return outObj;
 }
 

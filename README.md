@@ -176,7 +176,10 @@
 	- maybe jquerys getJSON ?
 	- watch is useful for asynchronous tasks in response to property changes
 
+### vuetify
+- In order for your application to work properly, you must wrap it in a v-app component. Th
 
+- https://vuetifyjs.com/style/colors
 
 ## JS
 

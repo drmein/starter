@@ -9,11 +9,11 @@
 - https://www.smashingmagazine.com/2017/09/comprehensive-overview-ux-design-deliverables/
 - http://designresources.party/
 - http://makerbook.net/
-
+- https://www.nngroup.com/articles/ux-mapping-cheat-sheet/
 
 ## Front-end (General)
 - https://github.com/thedaviddias/Front-End-Checklist
-
+- https://codeburst.io/the-front-end-checklist-8b2292fdda44
 ## Design patterns
 - http://ui-patterns.com/patterns
 - http://patterns.alistapart.com/
@@ -28,6 +28,9 @@
 - https://onepagelove.com/
 - https://twitter.com/i/moments/880688233641848832
 - https://www.thebestdesigns.com/
+- https://www.reallygoodux.io/
+
+
 
 ## Templates
 - https://underexpress.com/free-website-kit
@@ -37,6 +40,7 @@
 - https://codepen.io/tyrellrummage/full/ZJPXgy/
 
 ## Tutorials
+- https://aerolab.co/blog/flexbox-grids/
 - http://www.the-art-of-web.com/css/css-animation/
 - https://betterwebtype.com/
 - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
@@ -158,7 +162,8 @@
 ### print
 
 
-
+## Productivity
+- https://about.gitlab.com/2017/11/09/gitlab-vue-one-year-later/
 
 
 

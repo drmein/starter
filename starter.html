@@ -1,72 +1,47 @@
 <html>
 
 <head>
-	<!-- Head Content -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Starter 2: Vue Test</title>
-	<script src="https://unpkg.com/vue"></script>
-	<script src="js/vue-qriously.js"></script>
-
-	<script src="js/jquery-3.2.1.js"></script>
-
-	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
-
-	<script src="js/lodash.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Roboto:300,400,700,900" rel="stylesheet">
-
-	<link href="style.css" rel="stylesheet">
-
+    <!-- head content -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>starter 2: vue test</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="js/vue-qriously.js"></script>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+    <script src="js/lodash.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=open+sans:300,400,600,700,800|roboto:300,400,700,900" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
-	<!--
-    NOTES:
+    <!--
+    notes:
         - begin with a greeting splash
         -
     -->
-	<div id="app">
-		<!--TODO
+    <div id="app">
+        <!--todo
 
 -->
-
-		<display-header :hours='outHours'>
-
-			<!-- Todo: -->
-		</display-header>
-
-		<h1 id='page-title'>Welcome to the {{libraryName}} </h1>
-
-
-		<section id="main">
-
-
-
-			<homepage-content ref='homepageref'>
-			</homepage-content>
-
-			<database-content ref='databaseref'>
-			</database-content>
-
-
-			<newbook-content ref='newbookref'>
-			</newbook-content>
-
-			<librarian-content ref='librarianref'>
-			</librarian-content>
-
-		</section>
-
-
-
-
-		<display-footer>
-		</display-footer>
-
-
-	</div>
-	<script src="js/main.js"></script>
-
+        <display-header :hours='outhours'>
+            <!-- todo: -->
+        </display-header>
+        <h1 id='page-title'>welcome to the {{libraryname}} </h1>
+        <section id="main">
+            <homepage-content ref='homepageref'>
+            </homepage-content>
+            <database-content ref='databaseref'>
+            </database-content>
+            <newbook-content ref='newbookref'>
+            </newbook-content>
+            <librarian-content ref='librarianref'>
+            </librarian-content>
+        </section>
+        <display-footer>
+        </display-footer>
+    </div>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

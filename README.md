@@ -37,8 +37,9 @@
 - <https://www.reallygoodux.io/>
 
 ## Templates
-
+- http://www.makeuseof.com/tag/html5-templates/
 - <https://underexpress.com/free-website-kit>
+- https://www.sitepoint.com/a-basic-html5-template/
 
 ## Tips
 
@@ -99,7 +100,8 @@
 
 - <http://fontello.com/>
 - <https://thenounproject.com/>
-- - <https://css-tricks.com/pretty-good-svg-icon-system/>
+- <https://css-tricks.com/pretty-good-svg-icon-system/>
+- https://orioniconlibrary.com/
 
     ### Fonts
 

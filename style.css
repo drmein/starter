@@ -124,11 +124,17 @@ h1#page-title {
     display: flex;
     align-items: center;
 }
+.featured-image{
+grid-column: span 4;
+padding:5em;
 
+}
 .featured-image img {
     width: 100%;
 }
-
+.text-content{
+grid-column: span 4;
+}
 .image-wrap {
     grid-column: 1/9;
     display: grid;

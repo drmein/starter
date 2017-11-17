@@ -21,6 +21,12 @@ Vue.component('structure-content', {
 		'divname': {
 			default: 'generic-item'
 		},
+		'textContent' : {
+			default: 'Text goes here!'
+		},
+		'featuredHTML' : {
+			default: ''
+		},
 		'sectionTitle': {
 			default: 'generic-section'
 		},
@@ -60,6 +66,12 @@ Vue.component('structure-content', {
                       </imagelist-component>
 				<div class='featured-image'>
 				<img :src=featuredImage>
+				</div>
+				<div class='text-content'>
+					<p> {{textContent}} </p>
+				</div>
+				<div v-html='featuredHTML' class='html-content'>
+
 				</div>
                 <div v-if=hasBullets  class="bullet-list">
                 <h4>{{bulletItemTitle}}</h4>
@@ -277,6 +289,7 @@ Vue.component('librarian-content', {
 			sectionTitle: 'Featured librarians',
 			bullets: true,
 			image: {},
+			text: '',
 			divName: 'librarian-item',
 			bulletItemTitle: 'Librarians can help you to: ',
 			bulletItemList: [
@@ -290,8 +303,10 @@ Vue.component('librarian-content', {
 
 			qrUrl: 'http://pvd.library.jwu.edu/az.php',
 			lgHtmlObjs: {},
+			imageObjList: {},
 			lgHtml: 'placeholder',
-			parsedHtml: {}
+			parsedHtml: {},
+			innerHTML: ''
 		}
 	},
 	watch: {
@@ -299,12 +314,14 @@ Vue.component('librarian-content', {
 			console.log("CHANGES");
 			parsedLibrarianContent = parseLgContent(this.lgHtmlObjs, 'librarian');
 			this.parsedHtml = parsedLibrarianContent;
-			this.image = parsedLibrarianContent.image.src;
+			this.image = parsedLibrarianContent.image[0].src;
+			this.text = parsedLibrarianContent.text;
+			this.innerHTML = parsedLibrarianContent.innerHTML;
 		}
 	},
 
 	template: `
-  <structure-content :divname=divName :qrUrl=qrUrl :sectionTitle=sectionTitle :imageObjList=imageObjList :hasBullets=bullets :bulletItemList=bulletItemList :bulletItemTitle=bulletItemTitle :featuredImage=image>
+  <structure-content :textContent=text :divname=divName :qrUrl=qrUrl :sectionTitle=sectionTitle :imageObjList=imageObjList :hasBullets=bullets :bulletItemList=bulletItemList :bulletItemTitle=bulletItemTitle :featuredImage=image :featuredHTML=innerHTML>
   </structure-content>
   `
 });
@@ -389,11 +406,13 @@ function bookParse(lgContent) {
 }
 
 function librarianParse(lgContent) {
-	parsed = lgContent[0].children;
-	parsed = _.sample(parsed);
+	parsed = _.sample(lgContent[0].children);
+	console.log(parsed);
 	outObj = {};
-	outObj['image'] = _.sample(parsed.querySelectorAll('img'));
-	outObj['text'] = _.sample(parsed.querySelectorAll('p'));
+	outObj['image'] = parsed.querySelectorAll('img');
+	outObj['htmlContent'] = parsed;
+	outObj['text'] = outObj['htmlContent'].innerText;
+	outObj['innerHTML'] = outObj['htmlContent'].innerHTML;
 
 	return outObj;
 }
@@ -417,7 +436,11 @@ function parseLgContent(lgContent, type) {
 
 }
 
-var contentItems = ['databases-item', 'homepage-item', 'newbooks-item', 'librarian-item'];
+var contentItems = [
+	'databases-item',
+	'homepage-item',
+	'newbooks-item',
+	'librarian-item'];
 
 function changeContent(contentItems) {
 	document.querySelectorAll

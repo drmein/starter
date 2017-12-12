@@ -10,6 +10,7 @@
 - <http://makerbook.net/>
 - <https://www.nngroup.com/articles/ux-mapping-cheat-sheet/>
 - https://www.smashingmagazine.com/2017/11/comprehensive-guide-web-design/
+- https://principles.design/
 
 ## Front-end (General)
 

@@ -9,6 +9,8 @@
 - <http://designresources.party/>
 - <http://makerbook.net/>
 - <https://www.nngroup.com/articles/ux-mapping-cheat-sheet/>
+- https://www.smashingmagazine.com/2017/11/comprehensive-guide-web-design/
+- https://principles.design/
 
 ## Front-end (General)
 
@@ -113,7 +115,14 @@
 
 - <https://github.com/abhishekbanthia/Public-APIs>
 - <https://devhints.io/>
+- http://meyerweb.com/eric/thoughts/2017/11/27/generating-wireframe-boxes-with-css-and-html5/
 
+ ### cssgrid
+ - https://medium.freecodecamp.org/learn-css-grid-in-5-minutes-f582e87b1228
+ - https://css-tricks.com/snippets/css/css-grid-starter-layouts/
+
+## visualizations
+- http://visualizationuniverse.com/
 ## Tools
 
 - <https://github.com/prettier/prettier>
@@ -133,6 +142,7 @@
 - <https://github.com/jquery-textfill/jquery-textfill>
 - <https://github.com/twitter/typeahead.js>
 - <https://github.com/webslides/WebSlides>
+- https://pudding.cool/process/introducing-scrollama/
 
   ### node
 
